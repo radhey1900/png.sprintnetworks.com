@@ -4,9 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprint Networks — SD-WAN & SASE for Papua New Guinea</title>
-    <meta name="description" content="Sprint Networks has designed, deployed, and managed SD-WAN and SASE across Papua New Guinea since 2018. Not vendor packages — engineered solutions that work where you are, managed and supported by a team that picks up the phone.">
+    <meta name="description" content="Sprint Networks designs, deploys, and manages SD-WAN and SASE across Papua New Guinea — sized for PNG's links, not a Sydney office slide deck. Located in Port Moresby.">
+    <meta name="geo.region" content="PG-12">
+    <meta name="geo.placename" content="National Capital District, Port Moresby">
+    <meta name="geo.position" content="-9.4438;147.1803">
+    <meta name="ICBM" content="-9.4438, 147.1803">
 
-    <style>
+    <!-- Favicons: PNG favicons are what browsers actually use -->
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon-64.png" sizes="64x64" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon-64.png">
+    <link rel="canonical" href="https://png.sprintnetworks.com/">
+    <link rel="sitemap" type="application/xml" href="https://png.sprintnetworks.com/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://png.sprintnetworks.com/">
+    <meta property="og:title" content="Sprint Networks — SD-WAN & SASE for Papua New Guinea">
+    <meta property="og:description" content="Sprint Networks designs, deploys, and manages SD-WAN and SASE across Papua New Guinea — sized for PNG's links, not a Sydney office slide deck. Located in Port Moresby.">
+    <meta property="og:image" content="https://png.sprintnetworks.com/opengraph.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Sprint Networks — SD-WAN & SASE for Papua New Guinea">
+    <meta property="og:locale" content="en_PG">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sprint Networks — SD-WAN & SASE for Papua New Guinea">
+    <meta name="twitter:description" content="Sprint Networks designs, deploys, and manages SD-WAN and SASE across Papua New Guinea — sized for PNG's links, not a Sydney office slide deck. Located in Port Moresby.">
+    <meta name="twitter:image" content="https://png.sprintnetworks.com/opengraph.png">
+
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Structured data: Organization + LocalBusiness (PNG-anchored) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+          "@id": "https://png.sprintnetworks.com/#organization",
+          "name": "Sprint Networks",
+          "url": "https://png.sprintnetworks.com/",
+          "logo": "https://png.sprintnetworks.com/logo.png",
+          "image": "https://png.sprintnetworks.com/opengraph.png",
+          "description": "Sprint Networks designs, deploys, and manages SD-WAN and SASE across Papua New Guinea. Located in Port Moresby.",
+          "areaServed": {
+            "@type": "Country",
+            "name": "Papua New Guinea",
+            "url": "https://en.wikipedia.org/wiki/Papua_New_Guinea"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-9.4438",
+            "longitude": "147.1803"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Port Moresby",
+            "addressCountry": "PG"
+          },
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "email": "info@sprintnetworks.com",
+              "availableLanguage": "English"
+            }
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/company/sprint-networks"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://png.sprintnetworks.com/#website",
+          "url": "https://png.sprintnetworks.com/",
+          "name": "Sprint Networks - SD-WAN & SASE for Papua New Guinea",
+          "publisher": { "@id": "https://png.sprintnetworks.com/#organization" },
+          "inLanguage": "en-PG"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://png.sprintnetworks.com/#webpage",
+          "url": "https://png.sprintnetworks.com/",
+          "name": "Sprint Networks - SD-WAN & SASE for Papua New Guinea",
+          "description": "Sprint Networks designs, deploys, and manages SD-WAN and SASE across Papua New Guinea - sized for PNG's links, not a Sydney office slide deck. Located in Port Moresby.",
+          "isPartOf": { "@id": "https://png.sprintnetworks.com/#website" },
+          "primaryImageOfPage": "https://png.sprintnetworks.com/opengraph.png",
+          "inLanguage": "en-PG"
+        }
+      ]
+    }
+    </script>
+
+    <style>    <style>
         :root {
             --bg: #f8fafc;
             --bg-card: #ffffff;
@@ -414,21 +507,6 @@
             margin-right: 2px;
         }
 
-
-        .quote-text {
-            font-size: 1.04rem;
-            font-style: italic;
-            color: var(--text-2);
-            line-height: 1.55;
-            margin-bottom: 10px;
-        }
-
-        .quote-attrib {
-            font-size: 0.82rem;
-            color: var(--muted);
-            font-style: normal;
-        }
-
         /* ── LOCATIONS ── */
         .loc-grid {
             display: grid;
@@ -473,42 +551,35 @@
         .dot-planned { background: var(--muted); }
 
         /* ── CONTACT ROW ── */
-                .contact-row {
-                    display: flex;
-                    justify-content: center;
-                    gap: 20px;
-                    flex-wrap: wrap;
-                    margin-top: 16px;
-                    font-size: 0.9rem;
-                    color: var(--text-2);
-                }
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--text-2);
+        }
 
-                .contact-row .row-item {
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 8px;
-                    text-decoration: none;
-                    transition: opacity 0.2s;
-                }
+        .contact-row .row-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
 
-                .contact-row .row-item:hover { opacity: 0.75; }
+        .contact-row .row-item:hover { opacity: 0.75; }
 
-                .contact-row .icon {
-                    width: 20px;
-                    height: 20px;
-                    flex-shrink: 0;
-                }
+        .contact-row .icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
 
-                .contact-row .label {
-                    font-weight: 500;
-                }
-
-                .contact-row .number {
-                    font-weight: 600;
-                    color: var(--accent-strong);
-                }
-
+        /* ── CONTACT ── */
         .contact-card {
+            background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 30px;
@@ -533,16 +604,6 @@
         }
 
         .contact-email:hover { text-decoration: underline; }
-
-        .contact-row {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 14px;
-            font-size: 0.86rem;
-            color: var(--muted);
-        }
 
         footer {
             text-align: center;
@@ -623,8 +684,6 @@
             <a href="#contact" class="btn btn-primary">Talk to Sprint</a>
             <a href="#approach" class="btn btn-ghost">How we work</a>
         </div>
-
-
     </header>
 
     <!-- METHODOLOGY BAND -->
@@ -894,24 +953,21 @@
         <div class="contact-card">
             <h3>Sprint Networks</h3>
             <p>SD-WAN &amp; SASE — designed, deployed, managed, and monitored in Papua New Guinea.</p>
-                <a href="mailto:info@sprintnetworks.com" class="contact-email">info@sprintnetworks.com</a>
-                <div class="contact-row">
-                    <a class="row-item" href="https://wa.me/61427055393" target="_blank" rel="noopener">
-                        <img class="icon" src="whatsapp.svg" alt="WhatsApp">
-                        <span class="label">WhatsApp</span>
-                        <span class="number">+61 427 055 393</span>
-                    </a>
-                    <a class="row-item" href="tel:+67570911403">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        <span class="label">PNG</span>
-                        <span class="number">+675 7091 1403</span>
-                    </a>
-                    <a class="row-item" href="tel:+61298291191">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        <span class="label">AU</span>
-                        <span class="number">02 9829 1191</span>
-                    </a>
-                </div>
+            <a href="mailto:info@sprintnetworks.com" class="contact-email">info@sprintnetworks.com</a>
+            <div class="contact-row">
+                <a class="row-item" href="https://wa.me/61427055393" target="_blank" rel="noopener">
+                    <img class="icon" src="whatsapp.svg" alt="WhatsApp">
+                    <span>WhatsApp: +61 427 055 393</span>
+                </a>
+                <a class="row-item" href="tel:+67570911403">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>PNG: +675 7091 1403</span>
+                </a>
+                <a class="row-item" href="tel:+61298291191">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>AU: 02 9829 1191</span>
+                </a>
+            </div>
         </div>
     </section>
 

@@ -1,0 +1,4 @@
+Sitemap: https://png.sprintnetworks.com/sitemap.xml
+
+User-agent: *
+Allow: /
