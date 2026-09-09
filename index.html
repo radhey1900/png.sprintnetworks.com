@@ -1,77 +1,723 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sprint Networks - Test Page</title>
+    <title>Sprint Networks — SD-WAN & SASE for Papua New Guinea</title>
+    <meta name="description" content="Sprint Networks delivers Versa Networks SD-WAN and SASE across Papua New Guinea — Port Moresby, Lae, Mt Hagen, mining sites, and remote operations. Managed, supported, deployed.">
 
     <style>
+        :root {
+            --bg: #0b1424;
+            --bg-card: #111d33;
+            --bg-card-2: #162544;
+            --border: #1e3356;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-2: #2dd4bf;
+            --warn: #fbbf24;
+            --danger: #f87171;
+            --good: #34d399;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            color: #222;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 20, 36, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        .nav-cta {
+            background: var(--accent);
+            color: #0b1424 !important;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta:hover { background: var(--accent-2); }
+
+        /* ── HERO ── */
+        .hero {
+            text-align: center;
+            padding: 80px 24px 60px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            letter-spacing: 0.02em;
+        }
+
+        .badge svg { width: 14px; height: 14px; }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #0b1424;
+        }
+
+        .btn-primary:hover {
+            background: #7dd3fc;
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ── STATS BAR ── */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            padding: 32px 24px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+            background: rgba(17, 29, 51, 0.5);
+        }
+
+        .stat { text-align: center; }
+
+        .stat-num {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 4px;
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .section-sub {
+            color: var(--muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* ── PAIN CARDS ── */
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .pain-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .pain-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .pain-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+        }
+
+        .pain-card:nth-child(1) .pain-icon { background: rgba(251, 191, 36, 0.12); }
+        .pain-card:nth-child(2) .pain-icon { background: rgba(248, 113, 113, 0.12); }
+        .pain-card:nth-child(3) .pain-icon { background: rgba(56, 189, 248, 0.12); }
+        .pain-card:nth-child(4) .pain-icon { background: rgba(45, 212, 191, 0.12); }
+
+        .pain-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .pain-card p {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        /* ── SERVICES TABLE ── */
+        .services-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .services-table th {
+            text-align: left;
+            padding: 14px 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            background: var(--bg-card-2);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .services-table td {
+            padding: 16px 20px;
+            font-size: 0.92rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .services-table tr:last-child td { border-bottom: none; }
+
+        .services-table td:first-child {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .check {
+            color: var(--good);
+            font-weight: 700;
+            margin-right: 4px;
+        }
+
+        .cross {
+            color: var(--danger);
+            font-weight: 700;
+            margin-right: 4px;
+        }
+
+        /* ── LOCATIONS ── */
+        .loc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .loc-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: border-color 0.2s;
+        }
+
+        .loc-card:hover { border-color: var(--accent); }
+
+        .loc-card .city {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .loc-card .note {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .loc-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .dot-live { background: var(--good); box-shadow: 0 0 8px var(--good); }
+        .dot-deploy { background: var(--accent); }
+        .dot-planned { background: var(--muted); }
+
+        /* ── CLI BANNER ── */
+        .cli-banner {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .cli-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: var(--bg-card-2);
+            border-bottom: 1px solid var(--border);
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .cli-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .cli-dot.red { background: #ff5f57; }
+        .cli-dot.yellow { background: #febc2e; }
+        .cli-dot.green { background: #28c840; }
+
+        .cli-body {
+            padding: 20px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.82rem;
+            line-height: 1.7;
+            color: var(--muted);
+            white-space: pre-wrap;
+            background: #0a1428;
+            overflow-x: auto;
+        }
+
+        .cli-body .prompt { color: var(--accent); }
+        .cli-body .ok { color: var(--good); }
+        .cli-body .warn { color: var(--warn); }
+
+        /* ── CONTACT / FOOTER ── */
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            max-width: 600px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .container {
-            max-width: 700px;
-            margin: 100px auto;
-            background: white;
-            padding: 50px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        .contact-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
         }
 
-        h1 {
-            margin-bottom: 10px;
-        }
-
-        .status {
+        .contact-card .email {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            margin: 16px 0;
             display: inline-block;
-            padding: 10px 20px;
-            margin: 20px 0;
-            border-radius: 20px;
-            background: #d4edda;
-            color: #155724;
-            font-weight: bold;
         }
 
-        p {
-            color: #666;
+        .contact-card .email:hover { text-decoration: underline; }
+
+        .contact-card p {
+            color: var(--muted);
+            font-size: 0.88rem;
         }
 
         footer {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #888;
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 600px) {
+            .nav-links { gap: 16px; }
+            .nav-links a:not(.nav-cta) { display: none; }
+            .stats { gap: 24px; }
+            .hero { padding: 48px 16px 40px; }
+            section { padding: 40px 16px; }
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
-        <h1>Sprint Networks</h1>
+    <!-- NAV -->
+    <nav>
+        <a href="/" class="logo">
+            <span class="logo-dot"></span>
+            Sprint Networks
+        </a>
+        <ul class="nav-links">
+            <li><a href="#pain">The Problem</a></li>
+            <li><a href="#solutions">What We Fix</a></li>
+            <li><a href="#locations">Coverage</a></li>
+            <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+        </ul>
+    </nav>
 
-        <div class="status">
-            ✓ Pages is Working
+    <!-- HERO -->
+    <header class="hero">
+        <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Papua New Guinea &bull; Managed SD-WAN &bull; SASE
         </div>
 
-        <p>
-            This is a test  page hosted.
-        </p>
+        <h1>
+            Your branches in PNG<br>
+            <span class="highlight">don't need to feel remote.</span>
+        </h1>
 
         <p>
-            If you can see this page, your website hosting is working correctly.
+            Sprint Networks deploys, manages, and supports Versa Networks SD-WAN and SASE across Papua New Guinea — so your Port Moresby, Lae, Mt Hagen, and mine-site offices perform like they're in the same building.
         </p>
 
-        <footer>
-            © 2026 Sprint Networks
-        </footer>
+        <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Talk to Sprint</a>
+            <a href="#solutions" class="btn btn-ghost">See what we fix</a>
+        </div>
+    </header>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-num">PNG</div>
+            <div class="stat-label">Where we operate</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">SD-WAN + SASE</div>
+            <div class="stat-label">Core platform</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">Managed</div>
+            <div class="stat-label">Deployed, monitored, supported</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">Partner</div>
+            <div class="stat-label">Not just a reseller</div>
+        </div>
     </div>
+
+    <!-- PAIN -->
+    <section id="pain">
+        <div class="section-label">The problem</div>
+        <h2 class="section-title">PNG IT is hard.<br>You shouldn't have to fight it every day.</h2>
+        <p class="section-sub">
+            Most WAN setups in PNG were built for a different country, a different network, and a different decade. Here's what that looks like on the ground.
+        </p>
+
+        <div class="pain-grid">
+            <div class="pain-card">
+                <div class="pain-icon">🌐</div>
+                <h3>National links feel like a lottery</h3>
+                <p>
+                    Telikom CS², PPC-1, PNG LNG — they exist, but you don't control the path. A cut in one cable and half your branches go dark while the other half slow to a crawl. You find out when users complain.
+                </p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">📡</div>
+                <h3>Remote sites run on prayer and satellite</h3>
+                <p>
+                    Mine sites, aid posts, rural offices — Starlink where licensed, O3b backhaul, microwave, or nothing at all. Each site is a one-off. No consistency, no central visibility, no real SLA.
+                </p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">🛡️</div>
+                <h3>Security is a branch office afterthought</h3>
+                <p>
+                    Every branch rolls its own firewall rules, every ISP gets full inbound, and your central team has no idea what's actually exposed until something happens. Cloud apps get the same treatment as internal servers.
+                </p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">🔧</div>
+                <h3>When something breaks, you find out from users</h3>
+                <p>
+                    No central monitoring. No alerting. No runbook. A link flaps in Lae, a site loses its satellite session, a firewall rule changes — and your NOC finds out when the CFO calls.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section id="solutions">
+        <div class="section-label">What Sprint fixes</div>
+        <h2 class="section-title">One platform. Every site. Visible and managed.</h2>
+        <p class="section-sub">
+            Versa Networks SD-WAN and SASE gives you a single fabric across every branch in PNG — fixed, satellite, mobile, whatever the link is. Sprint deploys it, monitors it, and supports it.
+        </p>
+
+        <table class="services-table">
+            <thead>
+                <tr>
+                    <th>What you get</th>
+                    <th>How it helps in PNG</th>
+                    <th>Sprint delivers</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>SD-WAN fabric</td>
+                    <td>
+                        <span class="check">✓</span>Active/active across Telikom, Digicel, Starlink, satellite<br>
+                        <span class="check">✓</span>Path selection per app — voice, ERP, cloud, backup<br>
+                        <span class="check">✓</span>Automatic failover when a link drops
+                    </td>
+                    <td>Deployment, tuning, policy design</td>
+                </tr>
+                <tr>
+                    <td>SASE / security</td>
+                    <td>
+                        <span class="check">✓</span>Cloud security for every branch, not just HQ<br>
+                        <span class="check">✓</span>Consistent policy from Port Moresby to the mine<br>
+                        <span class="check">✓</span>Zero-trust access to your apps
+                    </td>
+                    <td>Policy design, rollout, ongoing review</td>
+                </tr>
+                <tr>
+                    <td>Visibility & monitoring</td>
+                    <td>
+                        <span class="check">✓</span>Central view of every site, every link<br>
+                        <span class="check">✓</span>Alerting before users call<br>
+                        <span class="check">✓</span>Performance data per application, per path
+                    </td>
+                    <td>Monitoring, dashboards, NOC-style alert handling</td>
+                </tr>
+                <tr>
+                    <td>Managed support</td>
+                    <td>
+                        <span class="check">✓</span>On-ground in PNG, not a 14-hour call queue<br>
+                        <span class="check">✓</span>Named team that knows your network<br>
+                        <span class="check">✓</span>Branch-to-branch, not ticket-to-ticket
+                    </td>
+                    <td>Ongoing management, fault response, changes</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- CLI BANNER -->
+    <div class="cli-banner">
+        <div class="cli-header">
+            <span class="cli-dot red"></span>
+            <span class="cli-dot yellow"></span>
+            <span class="cli-dot green"></span>
+            &nbsp; sprint-noc ~ branch-health · port-moresby-core
+        </div>
+        <div class="cli-body">
+            <span class="prompt">$</span> sprint-health --site=PNG-POM-HQ --detail<br>
+            <span class="ok">✓</span> Site:        PNG-POM-HQ  &nbsp; Port Moresby Core<br>
+            <span class="ok">✓</span> Uptime:      99.97%  (30d)<br>
+            <span class="ok">✓</span> Links:       3/3 up  &nbsp; [Telikom-CX4 | Digicel-5G | Starlink]<br>
+            <span class="ok">✓</span> SD-WAN paths: active/active  &nbsp; 0 failovers (7d)<br>
+            <span class="ok">✓</span> Security:    SASE policy enforced  &nbsp; last review 2026-09-01<br>
+            <span class="warn">⚠</span> Latency avg:  38ms  &nbsp; (Telikom primary)<br>
+            <span class="ok">✓</span> Next review: 2026-09-15  &nbsp; [Sprint NOC]<br><br>
+            <span class="prompt">$</span> sprint-health --site=PNG-LAE-Branch --detail<br>
+            <span class="ok">✓</span> Site:        PNG-LAE-Branch  &nbsp; Lae Office<br>
+            <span class="ok">✓</span> Uptime:      99.82%  (30d)<br>
+            <span class="ok">✓</span> Links:       2/2 up  &nbsp; [Telikom-CX2 | Starlink-failover]<br>
+            <span class="ok">✓</span> Failovers:   1  &nbsp; (12d ago, 4 min, auto-recovered)<br>
+            <span class="warn">⚠</span> Latency avg:  62ms  &nbsp; (Starlink backup active 2h ago)<br>
+            <span class="ok">✓</span> Health:      OK  &nbsp; <span style="color:var(--muted)">no action required</span><br><br>
+            <span class="prompt">$</span> <span style="color:var(--muted)"># That's the visibility you don't get from ISP port simply being up.</span>
+        </div>
+    </div>
+
+    <!-- LOCATIONS -->
+    <section id="locations">
+        <div class="section-label">Coverage</div>
+        <h2 class="section-title">Everywhere PNG IT actually lives</h2>
+        <p class="section-sub">
+            We work across the populated corridors and the sites that matter to you — not just where the fibre happens to reach.
+        </p>
+
+        <div class="loc-grid">
+            <div class="loc-card">
+                <span class="loc-dot dot-live"></span>
+                <div class="city">Port Moresby</div>
+                <div class="note">Core & HQ deployments<br>Active monitoring</div>
+            </div>
+            <div class="loc-card">
+                <span class="loc-dot dot-live"></span>
+                <div class="city">Lae</div>
+                <div class="note">Branch & regional hub<br>Active monitoring</div>
+            </div>
+            <div class="loc-card">
+                <span class="loc-dot dot-deploy"></span>
+                <div class="city">Mt Hagen</div>
+                <div class="note">Deployment & support<br>Highlands coverage</div>
+            </div>
+            <div class="loc-card">
+                <span class="loc-dot dot-deploy"></span>
+                <div class="city">Madang</div>
+                <div class="note">Deployment & support<br>Coastal corridor</div>
+            </div>
+            <div class="loc-card">
+                <span class="loc-dot dot-deploy"></span>
+                <div class="city">Mining / Resources</div>
+                <div class="note">Site deployments<br>Satellite, fibre, microwave<br>Biggest IT spenders in PNG</div>
+            </div>
+            <div class="loc-card">
+                <span class="loc-dot dot-planned"></span>
+                <div class="city">Your site</div>
+                <div class="note">Wherever it is in PNG<br>Tell us where</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-label">Start</div>
+        <h2 class="section-title">Get a quote or a second opinion</h2>
+        <p class="section-sub">
+            Already have a network in PNG? We'll look at it honestly. Starting from scratch? We'll design it so it doesn't become someone else's problem.
+        </p>
+
+        <div class="contact-card">
+            <h3>Sprint Networks</h3>
+            <p>SD-WAN & SASE — deployed, managed, supported in Papua New Guinea.</p>
+            <a href="mailto:contact@sprintnetworks.com" class="email">contact@sprintnetworks.com</a>
+            <p>PNG-based. Partner-led. Not a reseller with no on-ground team.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            &copy; 2026 Sprint Networks &bull;
+            <a href="https://github.com/radhey1900/png.sprintnetworks.com" target="_blank" rel="noopener">Site source on GitHub</a>
+        </p>
+    </footer>
 
 </body>
 </html>
-```
