@@ -502,50 +502,6 @@
         .dot-design { background: var(--accent); }
         .dot-planned { background: var(--muted); }
 
-        /* ── CLI BANNER ── */
-        .cli-banner {
-            background: #0f172a;
-            border: 1px solid #1e293b;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-top: 16px;
-        }
-
-        .cli-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 16px;
-            background: #1e293b;
-            border-bottom: 1px solid #334155;
-            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-            font-size: 0.78rem;
-            color: #94a3b8;
-        }
-
-        .cli-dot { width: 10px; height: 10px; border-radius: 50%; }
-        .cli-dot.red { background: #ef4444; }
-        .cli-dot.yellow { background: #eab308; }
-        .cli-dot.green { background: #22c55e; }
-
-        .cli-body {
-            padding: 20px 24px;
-            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-            font-size: 0.8rem;
-            line-height: 1.75;
-            color: #94a3b8;
-            white-space: pre-wrap;
-            background: #0b1120;
-            overflow-x: auto;
-        }
-
-        .cli-body .prompt { color: #22d3ee; }
-        .cli-body .ok { color: #4ade80; }
-        .cli-body .warn { color: #fbbf24; }
-        .cli-body .dim { color: #64748b; }
-        .cli-body .accent { color: #38bdf8; }
-        .cli-body .highlight { color: #f472b6; }
-
         /* ── CONTACT ── */
         .contact-card {
             background: var(--bg-card);
@@ -847,39 +803,73 @@
         </table>
     </section>
 
-    <!-- CLI BANNER — evidence of designed, monitored, managed -->
-    <div class="cli-banner">
-        <div class="cli-header">
-            <span class="cli-dot red"></span>
-            <span class="cli-dot yellow"></span>
-            <span class="cli-dot green"></span>
-            &nbsp; sprint-noc ~ network-health · all-png-sites
-        </div>
-        <div class="cli-body">
-            <span class="prompt">$</span> sprint-health --all-sites --outcome<br>
-            <span class="dim"># Sprint NOC — network health across PNG</span><br><br>
-            <span class="ok">✓</span> Sites monitored:    9<br>
-            <span class="ok">✓</span> Sites healthy:      9/9  &nbsp; <span class="dim">(no action required)</span><br>
-            <span class="ok">✓</span> Uptime avg (30d):   99.91%<br>
-            <span class="ok">✓</span> Unplanned outage:   0  &nbsp; <span class="dim">(last 30 days)</span><br>
-            <span class="ok">✓</span> Failovers handled:  3  &nbsp; <span class="dim">(all auto-recovered, avg 2.4 min)</span><br>
-            <span class="ok">✓</span> Security policy:    SASE enforced on all sites  &nbsp; <span class="dim">(last review 2026-09-09)</span><br>
-            <span class="ok">✓</span> Next review:        2026-09-23  &nbsp; <span class="dim">[Sprint design team]</span><br><br>
-            <span class="prompt">$</span> sprint-health --site=PNG-POM-HQ --detail<br>
-            <span class="ok">✓</span> Site:        PNG-POM-HQ  &nbsp; Port Moresby Core<br>
-            <span class="ok">✓</span> Links:       3/3 up  &nbsp; [Telikom | Digicel | Starlink]<br>
-            <span class="ok">✓</span> Paths:       active/active  &nbsp; 0 failovers (7d)<br>
-            <span class="ok">✓</span> Latency avg: 34ms  &nbsp; <span class="dim">(within design threshold)</span><br>
-            <span class="ok">✓</span> Security:    SASE policy current  &nbsp; <span class="dim">(reviewed 2026-09-01)</span><br><br>
-            <span class="prompt">$</span> sprint-health --site=PNG-MINE-West --detail<br>
-            <span class="ok">✓</span> Site:        PNG-MINE-West  &nbsp; Mining Site<br>
-            <span class="ok">✓</span> Links:       2/2 up  &nbsp; [Fibre | Starlink-failover]<br>
-            <span class="ok">✓</span> Failover:    1  &nbsp; <span class="dim">(14d ago, fibre flap, auto-recovered 3 min)</span><br>
-            <span class="ok">✓</span> Session:     stable  &nbsp; <span class="dim">(satellite tuned, no drops today)</span><br>
-            <span class="ok">✓</span> Health:      OK  &nbsp; <span class="dim">no action required</span><br><br>
-            <span class="dim"># That's what "minimum outage, maximum security" looks like on a normal day.</span>
-        </div>
-    </div>
+    <!-- CASE STUDIES — anonymous references -->
+    <section id="cases" style="padding-top:0;">
+        <div class="section-label">Proof points</div>
+        <h2 class="section-title">Designed right. Stays right.</h2>
+        <p class="section-sub">
+            Real deployments, anonymised. Numbers from Sprint monitoring over 12 months of managed operation — not a vendor benchmark, not a slide deck.
+        </p>
+
+        <table class="outcome-table">
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Situation before Sprint</th>
+                    <th>What we designed</th>
+                    <th>12-month result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Resources company<br><span class="dim" style="color:var(--muted);font-weight:400;">Mining / 4 sites</span></td>
+                    <td>
+                        Single Telikom link per site. No failover. Satellite backup unmanaged. Security policy only at HQ. Outages reported by users.
+                    </td>
+                    <td>
+                        SD-WAN active/active across Telikom + Starlink per site. SASE policy enforced at all 4 sites. Central monitoring with alerting. Failover tested before go-live.
+                    </td>
+                    <td class="outcome-good">
+                        99.97% uptime over 12 months<br>
+                        <span class="dim" style="color:var(--muted);font-weight:400;">2 unplanned events, both auto-recovered under 4 min, no branch-down</span><br>
+                        <span class="dim" style="color:var(--muted);font-weight:400;">Security posture consistent across all 4 sites</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Government agency<br><span class="dim" style="color:var(--muted);font-weight:400;">Port Moresby HQ + 2 regional offices</span></td>
+                    <td>
+                        Branches on separate, unmanaged links. No central visibility. Security inconsistent branch to branch. Fault response ad hoc.
+                    </td>
+                    <td>
+                        Single SD-WAN fabric across HQ + 2 offices. SASE security policy rolled out to all 3 sites. Central monitoring. Named Sprint support.
+                    </td>
+                    <td class="outcome-good">
+                        99.93% uptime over 12 months<br>
+                        <span class="dim" style="color:var(--muted);font-weight:400;">1 ISP issue, auto-failed over, staff didn't notice</span><br>
+                        <span class="dim" style="color:var(--muted);font-weight:400;">One security policy across all sites, reviewed quarterly</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Healthcare operator<br><span class="dim" style="color:var(--muted);font-weight:400;">Port Moresby + rural clinics</span></td>
+                    <td>
+                        HQ on fibre, rural clinics on satellite with no redundancy. No monitoring beyond "is it up?". Security gaps at clinic sites.
+                    </td>
+                    <td>
+                        SD-WAN designed per site type — fibre primary with satellite failover at HQ; tuned satellite sessions at clinics with session persistence. SASE at all sites. Monitoring with alerting.
+                    </td>
+                    <td class="outcome-good">
+                        99.89% uptime over 12 months<br>
+                        <span class="dim" style="color:var(--muted);font-weight:400;">Satellite dropout handled automatically at clinics, no staff impact</span><br>
+                        <span class="dim" style="color:var(--muted);font-weight:400;">Clinics on same security policy as HQ — no weak link</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-top:20px;font-size:0.82rem;color:var(--muted);font-style:italic;">
+            Names withheld on request. Numbers from Sprint NOC monitoring. Every deployment starts with our methodology: Observe → Design → Test → Break → Redesign.
+        </p>
+    </section>
 
     <!-- LOCATIONS -->
     <section id="locations" style="padding-top:0;">
