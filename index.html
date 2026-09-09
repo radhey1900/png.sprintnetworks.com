@@ -482,9 +482,43 @@
         .dot-design { background: var(--accent); }
         .dot-planned { background: var(--muted); }
 
-        /* ── CONTACT ── */
+        /* ── CONTACT ROW ── */
+                .contact-row {
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px;
+                    flex-wrap: wrap;
+                    margin-top: 16px;
+                    font-size: 0.9rem;
+                    color: var(--text-2);
+                }
+
+                .contact-row .row-item {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    text-decoration: none;
+                    transition: opacity 0.2s;
+                }
+
+                .contact-row .row-item:hover { opacity: 0.75; }
+
+                .contact-row .icon {
+                    width: 20px;
+                    height: 20px;
+                    flex-shrink: 0;
+                }
+
+                .contact-row .label {
+                    font-weight: 500;
+                }
+
+                .contact-row .number {
+                    font-weight: 600;
+                    color: var(--accent-strong);
+                }
+
         .contact-card {
-            background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 30px;
@@ -877,12 +911,24 @@
         <div class="contact-card">
             <h3>Sprint Networks</h3>
             <p>SD-WAN &amp; SASE — designed, deployed, managed, and monitored in Papua New Guinea.</p>
-            <a href="mailto:info@sprintnetworks.com" class="contact-email">info@sprintnetworks.com</a>
-            <div class="contact-row">
-                <span>💬 WhatsApp: +61 427 055 393</span>
-                <span>📞 PNG: +675 7091 1403</span>
-                <span>📞 AU: 02 9829 1191</span>
-            </div>
+                <a href="mailto:info@sprintnetworks.com" class="contact-email">info@sprintnetworks.com</a>
+                <div class="contact-row">
+                    <a class="row-item" href="https://wa.me/61427055393" target="_blank" rel="noopener">
+                        <img class="icon" src="whatsapp.svg" alt="WhatsApp">
+                        <span class="label">WhatsApp</span>
+                        <span class="number">+61 427 055 393</span>
+                    </a>
+                    <a class="row-item" href="tel:+67570911403">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span class="label">PNG</span>
+                        <span class="number">+675 7091 1403</span>
+                    </a>
+                    <a class="row-item" href="tel:+61298291191">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span class="label">AU</span>
+                        <span class="number">02 9829 1191</span>
+                    </a>
+                </div>
         </div>
     </section>
 
